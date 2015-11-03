@@ -1,0 +1,28 @@
+﻿@model  Uteam.Nop.Plugins.ChildTheme.Models.ConfigurationModel
+@{
+    Layout = "";
+}
+@Html.Action("StoreScopeConfiguration", "Setting", new { area = "Admin" })
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <table class="adminContent">
+        <tr>
+            <td class="adminTitle">
+                @Html.OverrideStoreCheckboxFor(model => model.CurrentChildThemeName_OverrideForStore, model => model.CurrentChildThemeName, Model.ActiveStoreScopeConfiguration)
+                @Html.NopLabelFor(model => model.CurrentChildThemeName):
+            </td>
+            <td class="adminData">
+                @Html.DropDownListFor(model => model.CurrentChildThemeName, Model.AvailableStoreThemes)
+                @Html.ValidationMessageFor(model => model.CurrentChildThemeName)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" name="save" class="k-button" value="@T("Admin.Common.Save")" />
+                <p>Restart application to apply settings</p>
+            </td>
+        </tr>
+    </table>
+}

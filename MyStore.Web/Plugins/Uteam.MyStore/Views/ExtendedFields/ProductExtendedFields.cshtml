@@ -1,0 +1,24 @@
+﻿@model Nop.Plugins.MyStore.Models.Product.ProductExtendedFieldsModel
+@{
+    Layout = null;
+}
+
+<tr>
+    <td class="adminTitle">
+        @Html.NopLabelFor(model => model.Heading)
+    </td>
+    <td class="adminData">
+        @Html.EditorFor(model => model.Heading)
+    </td>
+</tr>
+
+
+
+<tr>
+    <td class="adminTitle">
+        @Html.NopLabelFor(model => model.MyCheck)
+    </td>
+    <td class="adminData">
+        @Html.CheckBoxFor(model => model.MyCheck,false)
+    </td>
+</tr>
